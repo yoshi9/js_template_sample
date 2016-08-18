@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><!-- jquery　本体-->
+<script type="text/javascript"  src="js/jsrender.min.js"></script><!-- jquery-UI　本体-->
+
+
+
+
+<script type="text/javascript" >
+$(function () {
+
+    var template;
+    $.get("http://test1.snr.jp/sotetsu-renew/test/render/tmpl/header.html", function(data) {
+     template = data; 
+//    $('#header').append(template);
+    
+    $.templates({
+       cardList: template
+    });
+
+    var arg_data = [
+        {page: '2', title: 'AndroidエンジニアのためのモダンJava', price : 3360 , publish : '技術評論社'},
+        ]
+
+    
+    $('#header').append($.render.cardList(arg_data));
+
+     });
+
+
+    
+
+
+//    $('#header').append($('#header_tmpl').render(template));
+
+});
+</script>
+
+<style type="text/css">
+p {color: #ff0000}
+</style>
+
+
+</head>
+<body>
+<div id='header'>
+</div>
+
+
+参考 <a href="http://borismoore.github.io/jsrender/demos/demos.html">http://borismoore.github.io/jsrender/demos/demos.html </a>
+<br/><a href="http://d.hatena.ne.jp/shimooka/20121002/1349149970">http://d.hatena.ne.jp/shimooka/20121002/1349149970</a>
+
+</body>
+
+</html>
